@@ -1,0 +1,114 @@
+{
+    "states": [{
+        "keyword": "AN",
+        "autocompleteTerm": "Andaman and Nicobar Islands"
+    }, {
+        "keyword": "AP",
+        "autocompleteTerm": "Andhra Pradesh"
+    }, {
+        "keyword": "AR",
+        "autocompleteTerm": "Arunachal Pradesh"
+    }, {
+        "keyword": "AS",
+        "autocompleteTerm": "Assam"
+    }, {
+        "keyword": "BR",
+        "autocompleteTerm": "Bihar"
+    }, {
+        "keyword": "CG",
+        "autocompleteTerm": "Chandigarh"
+    }, {
+        "keyword": "CH",
+        "autocompleteTerm": "Chhattisgarh"
+    }, {
+        "keyword": "DN",
+        "autocompleteTerm": "Dadra and Nagar Haveli"
+    }, {
+        "keyword": "DD",
+        "autocompleteTerm": "Daman and Diu"
+    }, {
+        "keyword": "DL",
+        "autocompleteTerm": "Delhi"
+    }, {
+        "keyword": "GA",
+        "autocompleteTerm": "Goa"
+    }, {
+        "keyword": "GJ",
+        "autocompleteTerm": "Gujarat"
+    }, {
+        "keyword": "HR",
+        "autocompleteTerm": "Haryana"
+    }, {
+        "keyword": "HP",
+        "autocompleteTerm": "Himachal Pradesh"
+    }, {
+        "keyword": "JK",
+        "autocompleteTerm": "Jammu and Kashmir"
+    }, {
+        "keyword": "JH",
+        "autocompleteTerm": "Jharkhand"
+    }, {
+        "keyword": "KA",
+        "autocompleteTerm": "Karnataka"
+    }, {
+        "keyword": "KL",
+        "autocompleteTerm": "Kerala"
+    }, {
+        "keyword": "LA",
+        "autocompleteTerm": "Ladakh"
+    }, {
+        "keyword": "LD",
+        "autocompleteTerm": "Lakshadweep"
+    }, {
+        "keyword": "MP",
+        "autocompleteTerm": "Madhya Pradesh"
+    }, {
+        "keyword": "MH",
+        "autocompleteTerm": "Maharashtra"
+    }, {
+        "keyword": "MN",
+        "autocompleteTerm": "Manipur"
+    }, {
+        "keyword": "ML",
+        "autocompleteTerm": "Meghalaya"
+    }, {
+        "keyword": "MZ",
+        "autocompleteTerm": "Mizoram"
+    }, {
+        "keyword": "NL",
+        "autocompleteTerm": "Nagaland"
+    }, {
+        "keyword": "OR",
+        "autocompleteTerm": "Odisha"
+    }, {
+        "keyword": "PY",
+        "autocompleteTerm": "Puducherry"
+    }, {
+        "keyword": "PB",
+        "autocompleteTerm": "Punjab"
+    }, {
+        "keyword": "RJ",
+        "autocompleteTerm": "Rajasthan"
+    }, {
+        "keyword": "SK",
+        "autocompleteTerm": "Sikkim"
+    }, {
+        "keyword": "TN",
+        "autocompleteTerm": "Tamil Nadu"
+    }, {
+        "keyword": "TS",
+        "autocompleteTerm": "Telangana"
+    }, {
+        "keyword": "TR",
+        "autocompleteTerm": "Tripura"
+    }, {
+        "keyword": "UP",
+        "autocompleteTerm": "Uttar Pradesh"
+    }, {
+        "keyword": "UK",
+        "autocompleteTerm": "Uttarakhand"
+    }, {
+        "keyword": "WB",
+        "autocompleteTerm": "West Bengal"
+    }]
+}
