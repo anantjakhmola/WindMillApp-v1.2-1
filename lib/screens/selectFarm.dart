@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../helpers/curvePainter.dart';
 import '../helpers/colorGradient.dart';
+import '../helpers/fetchedjsondata.dart';
+import 'farmDetails.dart';
+import 'jsonDataScreen.dart';
 
 class SelectFarm extends StatefulWidget {
   @override
@@ -8,7 +11,34 @@ class SelectFarm extends StatefulWidget {
 }
 
 class _SelectFarmState extends State<SelectFarm> {
-  List selected = ['y', 'n', 'n', 'n', 'n'];
+  int currentSelection = 0;
+  List<String> farmName = [
+    '1. Brahmanvel Farm, Dhule, Maharashtra',
+    '2. Dhalgaon Farm, Sangli, Maharashtra',
+    '3. Jaisalmer Farm, Jaisalmer, Rajasthan',
+    '4. Muppandal Farm, Kanyakumari, Tamil Nadu',
+    '5. Satara Farm, Satara, Maharashtra',
+  ];
+
+  navigate() {
+    isLoaded
+        ? Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FarmDetails(this.currentSelection),
+            ),
+          )
+        : Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => JsonDataScreen(
+                "selectTheWindFarm",
+                this.currentSelection,
+              ),
+            ),
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -29,17 +59,6 @@ class _SelectFarmState extends State<SelectFarm> {
               margin: EdgeInsets.only(top: height / 6),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    child: GestureDetector(
-                      child: Icon(
-                        Icons.arrow_forward,
-                        size: 70.0,
-                        color: Colors.cyan,
-                      ),
-                      // TODO: Navigate to next Page
-                      onTap: () {},
-                    ),
-                  ),
                   Padding(padding: EdgeInsets.only(top: 40.0)),
                   Container(
                     child: Text(
@@ -54,129 +73,40 @@ class _SelectFarmState extends State<SelectFarm> {
                   Padding(padding: EdgeInsets.only(top: 40.0)),
                   Container(
                     width: width,
-                    child: RaisedButton(
-                      padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      color:
-                          selected[0] == 'y' ? Colors.cyan : Color(0xFFF1728F),
-                      onPressed: () {
-                        setState(() {
-                          selected = List<String>.generate(6, (index) => "n");
-                          selected[0] = 'y';
-                        });
-                      },
-                      child: Text(
-                        "1. Brahmanvel Farm, Dhule, Maharashtra",
-                        style: TextStyle(
-                          fontSize: 23.0,
+                    height: (120.0 * 5) + (20 * 3),
+                    child: ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: farmName.length,
+                      itemBuilder: (context, i) => Container(
+                        padding: EdgeInsets.only(bottom: 20.0),
+                        height: 120.0,
+                        width: width,
+                        child: RaisedButton(
+                          splashColor: Colors.cyan,
+                          highlightColor: Colors.cyan,
+                          elevation: 10.0,
+                          padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          color: Color(0xFFF1728F),
+                          onPressed: () {
+                            setState(() {
+                              this.currentSelection = i;
+                              navigate();
+                            });
+                          },
+                          child: Text(
+                            "${farmName[i]}",
+                            style: TextStyle(
+                              fontSize: 23.0,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top: 25.0)),
-                  Container(
-                    width: width,
-                    child: RaisedButton(
-                      padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      color:
-                          selected[1] == 'y' ? Colors.cyan : Color(0xFFF1728F),
-                      onPressed: () {
-                        setState(() {
-                          selected = List<String>.generate(6, (index) => "n");
-                          selected[1] = 'y';
-                        });
-                      },
-                      child: Text(
-                        "2. Dhalgaon Farm, Sangli, Maharashtra",
-                        style: TextStyle(
-                          fontSize: 23.0,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 25.0)),
-                  Container(
-                    width: width,
-                    child: RaisedButton(
-                      padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      color:
-                          selected[2] == 'y' ? Colors.cyan : Color(0xFFF1728F),
-                      onPressed: () {
-                        setState(() {
-                          selected = List<String>.generate(6, (index) => "n");
-                          selected[2] = 'y';
-                        });
-                      },
-                      child: Text(
-                        "3. Jaisalmer Farm, Jaisalmer, Rajasthan",
-                        style: TextStyle(
-                          fontSize: 23.0,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 25.0)),
-                  Container(
-                    width: width,
-                    child: RaisedButton(
-                      padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      color:
-                          selected[3] == 'y' ? Colors.cyan : Color(0xFFF1728F),
-                      onPressed: () {
-                        setState(() {
-                          selected = List<String>.generate(6, (index) => "n");
-                          selected[3] = 'y';
-                        });
-                      },
-                      child: Text(
-                        "4. Muppandal Farm, Kanyakumari, Tamil Nadu",
-                        style: TextStyle(
-                          fontSize: 23.0,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 25.0)),
-                  Container(
-                    width: width,
-                    child: RaisedButton(
-                      padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      color:
-                          selected[4] == 'y' ? Colors.cyan : Color(0xFFF1728F),
-                      onPressed: () {
-                        setState(() {
-                          selected = List<String>.generate(6, (index) => "n");
-                          selected[4] = 'y';
-                        });
-                      },
-                      child: Text(
-                        "5. Satara Farm, Satara, Maharashtra",
-                        style: TextStyle(
-                          fontSize: 23.0,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 25.0)),
                 ],
               ),
             ),
