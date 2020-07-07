@@ -12,6 +12,13 @@ class FarmDetails extends StatefulWidget {
 }
 
 class _FarmDetailsState extends State<FarmDetails> {
+  List<Color> colorPallete = [
+    Colors.cyan,
+    Colors.red,
+    Colors.black,
+    Colors.white,
+    Colors.yellow,
+  ];
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -69,7 +76,7 @@ class _FarmDetailsState extends State<FarmDetails> {
                                     dataSource: getColumnData(widget.i),
                                     xValueMapper: (JsonData data, _) => data.x,
                                     yValueMapper: (JsonData data, _) => data.y,
-                                    color: Colors.cyan,
+                                    color: colorPallete[widget.i],
                                   ),
                                 ],
                               ),

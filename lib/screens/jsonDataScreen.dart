@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'allGraphOutput.dart';
-
-List<List<String>> dateTime = new List.generate(noOfFarms, (i) => []);
-List<List<String>> values = new List.generate(noOfFarms, (i) => []);
-final int noOfFarms = 5;
+import '../helpers/fetchedjsondata.dart';
+import 'farmDetails.dart';
 
 class JsonDataScreen extends StatefulWidget {
+  final String requestFrom;
+  final int val;
+  JsonDataScreen(
+    this.requestFrom,
+    this.val,
+  );
   @override
   _JsonDataScreenState createState() => _JsonDataScreenState();
 }
@@ -45,11 +49,9 @@ class _JsonDataScreenState extends State<JsonDataScreen> {
       });
     }
 
-    // print(dateTime.length);
-    // print(values.length);
-
     setState(() {
       if (finaluserData != null) {
+        isLoaded = true;
         this.moveToGraphOutputs();
         // getColumnData();
       }
@@ -60,7 +62,13 @@ class _JsonDataScreenState extends State<JsonDataScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => AllGraphOutput(),
+        builder: (context) {
+          if (widget.requestFrom == "howCanWeHelpYou") {
+            return AllGraphOutput();
+          } else if (widget.requestFrom == "selectTheWindFarm") {
+            return FarmDetails(widget.val);
+          }
+        },
       ),
     );
   }

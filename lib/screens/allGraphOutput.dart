@@ -34,7 +34,7 @@ class _AllGraphOutputState extends State<AllGraphOutput> {
                 children: <Widget>[
                   Container(
                     child: Text(
-                      "Output",
+                      "Collective Output",
                       style: TextStyle(
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ class _AllGraphOutputState extends State<AllGraphOutput> {
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(20.0),
                     ),
-                    height: 357.0,
+                    height: 370.0,
                     width: width,
                     child: Column(
                       children: <Widget>[
@@ -76,14 +76,19 @@ class _AllGraphOutputState extends State<AllGraphOutput> {
                           padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 7.0),
                           child: SfCartesianChart(
                             legend: Legend(
+                              width: "100%",
                               position: LegendPosition.bottom,
                               overflowMode: LegendItemOverflowMode.wrap,
                               isVisible: true,
+                              textStyle: ChartTextStyle(
+                                fontSize: 12.0,
+                              ),
                             ),
                             primaryXAxis: CategoryAxis(),
                             primaryYAxis: NumericAxis(),
                             series: <LineSeries<JsonData, String>>[
                               LineSeries<JsonData, String>(
+                                name: "Brahmanvel Farm",
                                 dataSource: getColumnData(0),
                                 xValueMapper: (JsonData data, _) => data.x,
                                 yValueMapper: (JsonData data, _) => data.y,
@@ -91,24 +96,28 @@ class _AllGraphOutputState extends State<AllGraphOutput> {
                               ),
                               //Multi graph
                               LineSeries<JsonData, String>(
+                                name: "Dhalgaon Farm",
                                 dataSource: getColumnData(1),
                                 xValueMapper: (JsonData data, _) => data.x,
                                 yValueMapper: (JsonData data, _) => data.y,
                                 color: Colors.red,
                               ),
                               LineSeries<JsonData, String>(
+                                name: "Jaisalmer Farm",
                                 dataSource: getColumnData(2),
                                 xValueMapper: (JsonData data, _) => data.x,
                                 yValueMapper: (JsonData data, _) => data.y,
                                 color: Colors.black,
                               ),
                               LineSeries<JsonData, String>(
+                                name: "Muppandal Farm",
                                 dataSource: getColumnData(3),
                                 xValueMapper: (JsonData data, _) => data.x,
                                 yValueMapper: (JsonData data, _) => data.y,
                                 color: Colors.white,
                               ),
                               LineSeries<JsonData, String>(
+                                name: "Satara Farm",
                                 dataSource: getColumnData(4),
                                 xValueMapper: (JsonData data, _) => data.x,
                                 yValueMapper: (JsonData data, _) => data.y,
@@ -117,6 +126,7 @@ class _AllGraphOutputState extends State<AllGraphOutput> {
                             ],
                           ),
                         ),
+                        Padding(padding: EdgeInsets.only(top: 20.0)),
                         Container(
                           child: GestureDetector(
                             onTap: () {
@@ -141,6 +151,16 @@ class _AllGraphOutputState extends State<AllGraphOutput> {
                   Padding(padding: EdgeInsets.only(top: 20.0)),
                 ],
               ),
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.cyan,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
             ),
           ),
         ),

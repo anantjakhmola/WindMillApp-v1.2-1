@@ -4,6 +4,8 @@ import '../helpers/colorGradient.dart';
 import 'selectFarm.dart';
 import 'jsonDataScreen.dart';
 import '../futureScope/requestYourReport.dart';
+import '../helpers/fetchedjsondata.dart';
+import 'allGraphOutput.dart';
 
 class HowCanWeHelpYou extends StatefulWidget {
   @override
@@ -78,12 +80,23 @@ class _HowCanWeHelpYouState extends State<HowCanWeHelpYou> {
                       ),
                       padding: EdgeInsets.all(20.0),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => JsonDataScreen(),
-                          ),
-                        );
+                        if (isLoaded) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AllGraphOutput(),
+                            ),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  //FIXME: 0 passed just because it is neccessary
+                                  JsonDataScreen("howCanWeHelpYou", 0),
+                            ),
+                          );
+                        }
                       },
                       child: Text(
                         "Optimum output",
